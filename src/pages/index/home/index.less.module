@@ -1,0 +1,5 @@
+.home {
+  display: flex;
+  color: #1FB860;
+  font-size: 14px;
+}

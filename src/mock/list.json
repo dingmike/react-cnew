@@ -1,0 +1,28 @@
+{
+    "code": 200,
+    "data": [{
+        "name" : "li锋",
+        "id" : 1,
+        "age" : 1,
+        "job" : "developer"
+    },
+        {
+            "name" : "li锋",
+            "age" : 18,
+            "id" : 2,
+            "job" : "developer"
+        },
+        {
+            "name" : "li锋",
+            "age" : 18,
+            "id" : 3,
+            "job" : "developer"
+        },
+        {
+            "name" : "li锋",
+            "age" : 18,
+            "id" : 4,
+            "job" : "developer"
+        }],
+    "message": "成功"
+}
