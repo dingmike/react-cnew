@@ -120,8 +120,8 @@
     |   |   |   |   |-- index.js
     |   |   |   |   |-- index.less
     |   |   |   |-- routes
-    |   |   |       |-- cart.js
-    |   |   |       |-- category.js
+    |   |   |       |-- course.js
+    |   |   |       |-- word.js
     |   |   |       |-- default.js
     |   |   |       |-- home.js
     |   |   |       |-- index.js

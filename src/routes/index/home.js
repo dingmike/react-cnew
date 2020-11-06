@@ -10,7 +10,7 @@ export const Auth = loadable({loader: () => import(/* webpackChunkName: "home" *
 export const HomeRoutes = [
     {
         path: "/home",
-        component: Home
+        component: TabNav(Home)
     },
     {
         path: "/auth",

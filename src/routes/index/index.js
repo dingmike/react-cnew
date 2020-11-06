@@ -3,8 +3,8 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch, Prompt } from "react-router-dom";
 import { Toast } from "antd-mobile";
 import { HomeRoutes, Home } from "./home";
-import { CategoryRoutes } from "./category";
-import { CartRoutes } from "./cart";
+import { CategoryRoutes } from "./word";
+import { CartRoutes } from "./course";
 import { PersonalRoutes } from "./personal";
 import NotFound from "@/components/default/not-found";
 import { DefaultRoutes } from "./default";
@@ -26,7 +26,7 @@ const routes = [
     {
         path: "/",
         // component: TabNav(Home),
-        component: Home,
+        component: TabNav(Home),
         // 路由为/时必须设置exact为true
         exact: true
     },

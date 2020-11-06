@@ -7,7 +7,7 @@ import {isNumber, isString, isUndefined} from "@/utils/type";
 import {getDateDiff} from "@/utils/date/format";
 import { Link } from 'react-router-dom'
 import { requestCourseData } from '@/store/actions/home'
-
+import {IntlProvider,FormattedMessage, FormattedDate} from 'react-intl';
 
 class Home extends Component {
     constructor(props) {
@@ -24,20 +24,30 @@ class Home extends Component {
         const {arr} = this.state;
         let {courseList, loading} = this.props;
         return (
-            <div>
-                <Button loading={loading}>loading button</Button><WhiteSpace />
-                <WhiteSpace />
-                {courseList.map(item => {
-                    return (
-                        <div key={item.id}>{item.name}</div>
-                    )
-                })}
-                {arr.map(item => {
-                    return (
-                        <div key={item}>{item}</div>
-                    )
-                })}
-            </div>
+                <div>
+                    <FormattedMessage
+                        id="HELLO_WORLD"
+                    />
+                    <FormattedDate
+                        value={new Date(1459913574887)}
+                        year='numeric'
+                        month='long'
+                        day='numeric'
+                        weekday='long'
+                    />
+                    <Button loading={loading}>loading button</Button><WhiteSpace />
+                    <WhiteSpace />
+                    {courseList.map(item => {
+                        return (
+                            <div key={item.id}>{item.name}</div>
+                        )
+                    })}
+                    {arr.map(item => {
+                        return (
+                            <div key={item}>{item}</div>
+                        )
+                    })}
+                </div>
         );
     }
 }
