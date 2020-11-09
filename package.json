@@ -15,7 +15,7 @@
     "css-fix": "stylelint src/**/*.{css,scss,less} --fix"
   },
   "keywords": [],
-  "author": "zhanglei",
+  "author": "mike",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.6.0",
@@ -101,6 +101,7 @@
     "redux": "^4.0.5",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
+    "react-sticky": "^6.0.3",
     "swiper": "^5.3.6"
   },
   "browserslist": [

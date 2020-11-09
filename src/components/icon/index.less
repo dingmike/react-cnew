@@ -1,0 +1,15 @@
+@keyframes icon-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@iconfont-css-prefix: icon-iconfont;
+
+.@{iconfont-css-prefix}-spin:before {
+  display: inline-block;
+  animation: icon-spin infinite 1s linear;
+}
