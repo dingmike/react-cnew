@@ -16,6 +16,7 @@ class Auth extends React.Component {
         query:  getUrlQuery('code')
     }
   }
+
    render() {
     return (
             <WingBlank>
