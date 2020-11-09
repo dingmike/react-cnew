@@ -12,6 +12,9 @@ import {IntlProvider,FormattedMessage, FormattedDate} from 'react-intl';
 import MyListHeader from '@/components/myListHeader'
 import Icons from '@/components/icon'
 
+import {fetchList} from "@/api/article";
+
+
 function MyBody(props) {
     return (
         <div className="am-list-body my-body">
@@ -82,6 +85,7 @@ class Home extends Component {
                 width: 320,
                 height: 640,
             },
+            currentPage: 1,
             dataSource,
             isLoading: true,
             height: document.documentElement.clientHeight * 3 / 4,
@@ -89,7 +93,7 @@ class Home extends Component {
     }
     componentDidMount() {
         let { updateData } = this.props;
-        updateData();
+        // updateData();
         // you can scroll to the specified position
         // setTimeout(() => this.lv.scrollTo(0, 120), 800);
 
@@ -104,6 +108,15 @@ class Home extends Component {
                 height: hei,
             });
         }, 600);
+
+        fetchList({
+            page: this.state.currentPage,
+            limit: 10,
+            sortNum: -1,
+            articleCate: []
+        }).then(res => {
+            console.log(res)
+        })
     }
     // If you use redux, the data maybe at props, you need use `componentWillReceiveProps`
     componentWillReceiveProps(nextProps) {
@@ -245,7 +258,7 @@ const mapDispatchToProps = (dispatch, ownProps) => {
     return {
         updateData: function(){
             dispatch(requestCourseData());
-        }
+        },
     };
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
