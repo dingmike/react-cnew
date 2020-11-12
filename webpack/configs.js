@@ -23,7 +23,7 @@ const outputPath = path.join(root, "dist");
 const dllOutputPath = path.join(staticPath, 'dll');
 // 单/多页面的入口所在目录
 const htmlPages = path.join(srcPath, 'pages');
-// 资源访问的公共绝对路径(格式如: /publicPath/)
+// 资源访问的公共绝对路径(格式如: /publicPath/) 包括css中的背景图url
 const publicPath = '/';
 
 // 公共配置(开发/生产均使用)

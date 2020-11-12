@@ -11,7 +11,7 @@ import { requestCourseData } from '@/store/actions/home'
 import {IntlProvider,FormattedMessage, FormattedDate} from 'react-intl';
 import MyListHeader from '@/components/myListHeader'
 import Icons from '@/components/icon'
-
+// require引入的本地图片文件需要使用相对路径，打包的时候生成新的img目录， css文件中的背景图url也使用相对路径引入
 import {fetchList} from "@/api/article";
 
 
@@ -175,11 +175,15 @@ class Home extends Component {
                             borderBottom: '1px solid #F6F6F6',
                         }}
                     >{obj.title}</div>
-                    <div style={{ display: '-webkit-box', display: 'flex', padding: '15px 0' }}>
-                        <img style={{ height: '64px', marginRight: '15px' }} src={obj.img} alt="" />
+                    <div style={{display: 'flex',
+                        padding: '15px 0' }}>
+                        <img style={{ height: '64px',
+                            marginRight: '15px' }} src={obj.img} alt="" />
                         <div style={{ lineHeight: 1 }}>
-                            <div style={{ marginBottom: '8px', fontWeight: 'bold' }}>{obj.des}</div>
-                            <div><span style={{ fontSize: '30px', color: '#FF6E27' }}>35</span>¥ {rowID}</div>
+                            <div style={{ marginBottom: '8px',
+                                fontWeight: 'bold' }}>{obj.des}</div>
+                            <div><span style={{ fontSize: '30px',
+                                color: '#FF6E27' }}>35</span>¥ {rowID}</div>
                         </div>
                     </div>
                 </div>

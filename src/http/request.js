@@ -23,7 +23,7 @@ export function endLoading() {
 const http = axios.create({
     timeout: 1000 * 10,
     withCredentials: true,
-    baseURL: process.env.MOCK ? '/mock' : ""
+    baseURL: process.env.MOCK ? '/mock' : "http://wxapi.fecstec.com/rn"
 });
 
 /**

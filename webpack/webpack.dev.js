@@ -260,9 +260,10 @@ module.exports = {
         // 在哪个url路径下首次访问启动页
         openPage: configs.openPage,
         // 有时无法访问可能是端口被占用
-        port: 8083,
+        port: 8082,
         // 启动webpack-dev-server时的host(设置为0.0.0.0无论是本机ip或127.0.0.1或localhost都会响应请求)
-        host: getNetworkIp(),
+        // host: getNetworkIp(),
+        host: '127.0.0.1',
         // 开启热更新
         hot: true,
         // true启动时和每次保存之后，那些显示的 webpack 包(bundle)信息将被隐藏。错误和警告仍然会显示, 和stats不能一起使用。

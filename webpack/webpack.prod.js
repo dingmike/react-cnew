@@ -67,7 +67,7 @@ const webpackConfig = {
     context: configs.root,
     // 输出(默认只能打包js文件,如果需要打包其他文件,需要借助相对应的loader)
     output: {
-        path: configs.outputPath,
+        path: configs.outputPath, // 打包文件输出目录
         // chunkhash 基于entery生成hash值 一个文件改动不会影响另一个
         // contenthash 通过MiniCssExtractPlugin提供 基于css文件内容生成 css内容不会影响js文件的hash值生成
         // hash是基于项目 只要项目内容改变就会影响hash值,一般用于开发环境
@@ -76,7 +76,7 @@ const webpackConfig = {
         // chunkFilename用来打包require.ensure方法中引入的模块,如果该方法中没有引入任何模块则不会生成任何chunk块文件
         // chunkFilename: 'js/[name]_[chunkhash:8].js'
         // 所有静态资源引用的公共绝对路径
-        publicPath: configs.publicPath,
+        publicPath: configs.publicPath,  // 表示资源的发布地址，当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换。包括css中的背景图url
     },
     // 让项目中通过es6等模块规范引入的文件不打包到最终的包里, 而是通过script标签引入(与这个有相同功能的就是dll)
     // 其中键为在使用时引入的变量名, 值为npm包名或者绝对路径
@@ -129,7 +129,7 @@ const webpackConfig = {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
                             // 修改css文件中静态资源的引用相对路径
-                            publicPath: configs.assetsPath,
+                            publicPath: configs.assetsPath,  // 表示资源的发布地址，当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换。包括css中的背景图url
                         },
                     },
                     // style-loader 把 js 中 import 导入的样式文件代码，打包到 js 文件中，运行 js 文件时，将样式自动插入到<style>标签中
@@ -145,7 +145,7 @@ const webpackConfig = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: configs.assetsPath,
+                            publicPath: configs.assetsPath,  // 表示资源的发布地址，当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换。包括css中的背景图url
                         },
                     },
                     "css-loader",
@@ -174,7 +174,7 @@ const webpackConfig = {
                     {
                         loader: MiniCssExtractPlugin.loader,
                         options: {
-                            publicPath: configs.assetsPath,
+                            publicPath: configs.assetsPath, // 表示资源的发布地址，当配置过该属性后，打包文件中所有通过相对路径引用的资源都会被配置的路径所替换。包括css中的背景图url
                         },
                     },
                     // 'style-loader',
@@ -223,7 +223,7 @@ const webpackConfig = {
                         loader: "url-loader",
                         options: {
                             // 图片和字体都使用hash值
-                            name: "img/[name]_[hash:8].[ext]",
+                            name: "img/[name]_[hash:8].[ext]", //自动打包到img目录  绝对路径是 configs.publicPath + '/img/'
                             // 小于20k全部打包成base64进入页面
                             limit: 20 * 1024,
                             // 默认超出后file-loader
