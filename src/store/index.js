@@ -7,6 +7,7 @@
  */
 
 import { createStore, applyMiddleware, combineReducers } from 'redux';
+import {persistStore, persistReducer} from 'redux-persist';
 // 日志中间件,仅在开发环境下使用,必须放在最后
 // import logger from 'redux-logger';
 // 异步分发action中间件
@@ -18,8 +19,20 @@ const RootReducer = combineReducers({
     userReducer,
     homeReducer
 });
+import storage from 'redux-persist/lib/storage';
+import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
+
+const persistConfig = {
+    key: 'root',
+    storage: storage,
+    stateReconciler: autoMergeLevel2 // 查看 'Merge Process' 部分的具体情况
+};
+const myPersistReducer = persistReducer(persistConfig, RootReducer);
+
 // applyMiddleware可以作为第二个参数也可以作为第三个参数
-let store = createStore(RootReducer, applyMiddleware(thunk));
+let store = createStore(myPersistReducer, applyMiddleware(thunk));
+
+export const persistore = persistStore(store);
 export default store;
 
 /**
