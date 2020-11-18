@@ -3,6 +3,34 @@ import PropTypes from 'prop-types';
 import lottie from 'lottie-web';
 
 export default class AeReact extends React.Component {
+    static defaultProps = {
+        eventListeners: [],
+        isStopped: false,
+        isPaused: false,
+        speed: 1,
+        ariaRole: 'button',
+        ariaLabel: 'animation',
+        isClickToPauseDisabled: false,
+        title: '',
+    };
+    // 对props 进行类型检测，如果使用typeScript有内置的
+    static propTypes = {
+        eventListeners: PropTypes.arrayOf(PropTypes.object),
+        options: PropTypes.object.isRequired,
+        height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+        isStopped: PropTypes.bool,
+        isPaused: PropTypes.bool,
+        speed: PropTypes.number,
+        segments: PropTypes.arrayOf(PropTypes.number),
+        direction: PropTypes.number,
+        ariaRole: PropTypes.string,
+        ariaLabel: PropTypes.string,
+        isClickToPauseDisabled: PropTypes.bool,
+        title: PropTypes.string,
+        style: PropTypes.string,
+    };
+
     componentDidMount() {
         const {
             options,
@@ -33,12 +61,7 @@ export default class AeReact extends React.Component {
         this.registerEvents(eventListeners);
     }
 
-    /*  componentWillUpdate(nextProps /!* , nextState *!/) {
-
-      }*/
-
     componentDidUpdate(nextProps) {
-
         /* Recreate the animation handle if the data is changed */
         if (this.options.animationData !== nextProps.options.animationData) {
             this.deRegisterEvents(this.props.eventListeners);
@@ -131,7 +154,6 @@ export default class AeReact extends React.Component {
             isClickToPauseDisabled,
             title,
         } = this.props;
-debugger;
         const getSize = (initial) => {
             let size;
 
@@ -172,31 +194,3 @@ debugger;
         );
     }
 }
-
-AeReact.propTypes = {
-    eventListeners: PropTypes.arrayOf(PropTypes.object),
-    options: PropTypes.object.isRequired,
-    height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    width: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    isStopped: PropTypes.bool,
-    isPaused: PropTypes.bool,
-    speed: PropTypes.number,
-    segments: PropTypes.arrayOf(PropTypes.number),
-    direction: PropTypes.number,
-    ariaRole: PropTypes.string,
-    ariaLabel: PropTypes.string,
-    isClickToPauseDisabled: PropTypes.bool,
-    title: PropTypes.string,
-    style: PropTypes.string,
-};
-
-AeReact.defaultProps = {
-    eventListeners: [],
-    isStopped: false,
-    isPaused: false,
-    speed: 1,
-    ariaRole: 'button',
-    ariaLabel: 'animation',
-    isClickToPauseDisabled: false,
-    title: '',
-};
